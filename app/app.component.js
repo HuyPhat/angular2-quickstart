@@ -22,7 +22,7 @@ var AppComponent = (function () {
         core_1.Component({
             selector: 'my-app',
             directives: [angular2_materialize_1.MaterializeDirective],
-            template: "\n        <ul materialize=\"collapsible\" class=\"collapsible\" data-collapsible=\"accordion\">\n          <li>\n            <div class=\"collapsible-header\"><i class=\"material-icons\">filter_drama</i>First</div>\n            <div class=\"collapsible-body\"><p>Lorem ipsum dolor sit amet.</p></div>\n          </li>\n          <li>\n            <div class=\"collapsible-header\"><i class=\"material-icons\">place</i>Second</div>\n            <div class=\"collapsible-body\"><p>Lorem ipsum dolor sit amet.</p></div>\n          </li>\n          <li>\n            <div class=\"collapsible-header\"><i class=\"material-icons\">whatshot</i>Third</div>\n            <div class=\"collapsible-body\"><p>Lorem ipsum dolor sit amet.</p></div>\n          </li>\n        </ul>"
+            templateUrl: 'app/app.component.html'
         }), 
         __metadata('design:paramtypes', [])
     ], AppComponent);
