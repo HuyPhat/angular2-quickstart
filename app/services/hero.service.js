@@ -9,24 +9,28 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 /**
- * Created by phathuy on 8/21/16.
+ * Created by phathuy on 8/28/16.
  */
 var core_1 = require('@angular/core');
-var angular2_materialize_1 = require("angular2-materialize");
-var AppComponent = (function () {
-    function AppComponent() {
-        this.title = 'Tour of Heroes';
-        this.hero = 'Windstorm';
+var mock_heroes_1 = require('../data/mock-heroes');
+var HeroService = (function () {
+    function HeroService() {
     }
-    AppComponent = __decorate([
-        core_1.Component({
-            selector: 'my-app',
-            directives: [angular2_materialize_1.MaterializeDirective],
-            templateUrl: 'app/app.component.html'
-        }), 
+    HeroService.prototype.getHeroes = function () {
+        return Promise.resolve(mock_heroes_1.HEROES);
+    };
+    HeroService.prototype.getHeroesSlowly = function () {
+        var _this = this;
+        return new Promise(function (resolve) {
+            return setTimeout(resolve, 2000);
+        })
+            .then(function () { return _this.getHeroes(); });
+    };
+    HeroService = __decorate([
+        core_1.Injectable(), 
         __metadata('design:paramtypes', [])
-    ], AppComponent);
-    return AppComponent;
+    ], HeroService);
+    return HeroService;
 }());
-exports.AppComponent = AppComponent;
-//# sourceMappingURL=app.component.js.map
+exports.HeroService = HeroService;
+//# sourceMappingURL=hero.service.js.map

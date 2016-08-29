@@ -1,0 +1,20 @@
+<div *ngIf="hero">
+    <h2>{{hero.name}} details!</h2>
+    <div class="ui horizontal divider">Add new</div>
+    <div class="ui form">
+        <div class="field">
+            <label>Id</label>
+            <div class="ui left icon disabled input">
+                <input type="text" [(ngModel)]="hero.id">
+                <i class="privacy icon"></i>
+            </div>
+        </div>
+        <div class="field">
+            <label>Name</label>
+            <div class="ui left icon input">
+                <input type="text" [(ngModel)]="hero.name" placeholder="Enter name...">
+                <i class="users icon"></i>
+            </div>
+        </div>
+    </div>
+</div>

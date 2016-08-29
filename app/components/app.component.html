@@ -1,0 +1,16 @@
+<h1>{{title}}</h1>
+<div class="ui secondary pointing menu">
+    <a class="item" [routerLinkActive]="['active']" routerLink="/dashboard">Dashboard</a>
+    <a class="item" [routerLinkActive]="['active']" routerLink="/heroes">Heroes</a>
+    <div class="right menu">
+        <a class="ui item">
+            Logout
+        </a>
+    </div>
+</div>
+<!--<div class="ui segment">-->
+    <p>
+        <router-outlet></router-outlet>
+    </p>
+<!--</div>-->
+

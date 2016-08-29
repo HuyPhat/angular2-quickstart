@@ -1,0 +1,19 @@
+<my-hero-detail [hero]="selectedHero"></my-hero-detail>
+<div class="ui horizontal divider">My Heroes</div>
+<div class="ui relaxed divided selection list">
+    <div style="margin-top: 10px;" class="ui active inline loader inverted dimmer" *ngIf="!heroes">
+        <div class="ui text loader">Heroes...</div>
+    </div>
+    <div class="item" *ngFor="let hero of heroes; trackBy:trackByFn; let i = index" (click)="onSelect(hero)">
+        <div class="ui horizontal label" [class.green]="hero === selectedHero">{{hero.id}}</div>
+        {{hero.name}}
+    </div>
+
+    <!--<sm-loader [complete]="heroes" class="small text inline loader inverted" text="Heroes..."></sm-loader>-->
+    <!--<sm-list>-->
+        <!--<sm-item class="item" *ngFor="let hero of heroes; trackBy:trackByFn; let i = index" (click)="onSelect(hero)">-->
+            <!--<div class="ui horizontal label" [class.green]="hero === selectedHero">{{hero.id}}</div>-->
+            <!--{{hero.name}}-->
+        <!--</sm-item>-->
+    <!--</sm-list>-->
+</div>
