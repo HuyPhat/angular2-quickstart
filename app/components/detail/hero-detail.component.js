@@ -12,10 +12,24 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * Created by phathuy on 8/27/16.
  */
 var core_1 = require('@angular/core');
+var router_1 = require('@angular/router');
+var hero_service_1 = require('../../services/hero.service');
 var hero_1 = require('../../shared/hero');
 var HeroDetailComponent = (function () {
-    function HeroDetailComponent() {
+    function HeroDetailComponent(heroService, route) {
+        this.heroService = heroService;
+        this.route = route;
     }
+    HeroDetailComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.route.params.forEach(function (params) {
+            var id = +params['id'];
+            _this.heroService.getHero(id).then(function (hero) { return _this.hero = hero; });
+        });
+    };
+    HeroDetailComponent.prototype.goBack = function () {
+        window.history.back();
+    };
     __decorate([
         core_1.Input(), 
         __metadata('design:type', hero_1.Hero)
@@ -26,7 +40,7 @@ var HeroDetailComponent = (function () {
             selector: 'my-hero-detail',
             templateUrl: './hero-detail.component.html'
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [hero_service_1.HeroService, router_1.ActivatedRoute])
     ], HeroDetailComponent);
     return HeroDetailComponent;
 }());

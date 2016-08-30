@@ -12,16 +12,29 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * Created by phathuy on 8/28/16.
  */
 var core_1 = require('@angular/core');
+var router_1 = require('@angular/router');
+var hero_service_1 = require('../../services/hero.service');
 var DashboardComponent = (function () {
-    function DashboardComponent() {
+    function DashboardComponent(heroService, router) {
+        this.heroService = heroService;
+        this.router = router;
+        this.heroes = [];
     }
+    DashboardComponent.prototype.ngOnInit = function () {
+        var _this = this;
+        this.heroService.getHeroes().then(function (heroes) { return _this.heroes = heroes.slice(1, 5); });
+    };
+    DashboardComponent.prototype.gotoDetail = function (hero) {
+        var link = ['/heroDetail', hero.id];
+        this.router.navigate(link);
+    };
     DashboardComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
             selector: 'my-dashboard',
             templateUrl: 'dashboard.component.html'
         }), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [hero_service_1.HeroService, router_1.Router])
     ], DashboardComponent);
     return DashboardComponent;
 }());
