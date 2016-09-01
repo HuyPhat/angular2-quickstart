@@ -8,9 +8,10 @@
         // 'hammerjs': 'node_modules/hammerjs',
         'app': 'app', // 'dist',
         '@angular': 'node_modules/@angular',
-        'angular2-in-memcore': 'node_modules/angular2-in-memory-web-api',
-        '@angular/router': 'node_modules/@angular/router',
-        '@angular/forms': 'node_modules/@angular/forms',
+        'angular2-in-memory-web-api': 'node_modules/angular2-in-memory-web-api',
+        // '@angular/router': 'node_modules/@angular/router',
+        // '@angular/http': 'node_modules/@angular/http',
+        // '@angular/forms': 'node_modules/@angular/forms',
         'jquery': 'node_modules/jquery/dist/jquery.min.js',
         'semantic': 'vendor/js/semantic.js',
         'rxjs': 'node_modules/rxjs',
@@ -22,7 +23,7 @@
         'app': {main: 'main.js', defaultExtension: 'js'},
         'rxjs': {defaultExtension: 'js'},
         'angular2-in-memory-web-api': {main: 'index.js', defaultExtension: 'js'},
-        'ng2-material': {main: 'index.js', defaultExtension: 'js'},
+        // 'ng2-material': {main: 'index.js', defaultExtension: 'js'},
         'ng-semantic': {main:'ng-semantic.js',defaultExtension:'js'}
     };
     var ngPackageNames = [
@@ -47,8 +48,9 @@
         packages['@angular/' + pkgName] = {main: 'bundles/' + pkgName + '.umd.js', defaultExtension: 'js'};
     }
 
-    packages['@angular/router'] = { main: 'index.js', defaultExtension: 'js' };
-    packages['@angular/forms'] = { main: 'index.js', defaultExtension: 'js' };
+    // packages['@angular/router'] = { main: 'index.js', defaultExtension: 'js' };
+    // packages['@angular/forms'] = { main: 'index.js', defaultExtension: 'js' };
+    // packages['@angular/http'] = { main: 'index.js', defaultExtension: 'js' };
 
     // Most environments should use UMD; some (Karma) need the individual index files
     var setPackageConfig = System.packageWithIndex ? packIndex : packUmd;

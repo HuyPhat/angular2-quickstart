@@ -1,6 +1,8 @@
 <div *ngIf="hero">
+    <button class="ui orange left icon button" (click)="goBack()">
+        <i class="left arrow icon"></i>
+    </button>
     <h2>{{hero.name}} details!</h2>
-    <div class="ui horizontal divider">Add new</div>
     <div class="ui form">
         <div class="field">
             <label>Id</label>
@@ -16,10 +18,13 @@
                 <i class="users icon"></i>
             </div>
         </div>
+        <div class="field">
+            <button class="ui green button" (click)="save()">
+                Save
+            </button>
+            <button class="ui button" (click)="discard()">
+                Discard
+            </button>
+        </div>
     </div>
 </div>
-<p></p>
-<button class="ui left labeled icon button" (click)="goBack()">
-    <i class="left arrow icon"></i>
-    Back
-</button>

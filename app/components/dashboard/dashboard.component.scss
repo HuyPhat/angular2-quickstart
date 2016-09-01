@@ -1,0 +1,9 @@
+h3 {
+  font-size: 2.28rem;
+}
+
+.ui.selection.list > .item {
+  &:hover {
+    background: #00b0ff;
+  }
+}

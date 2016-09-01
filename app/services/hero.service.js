@@ -12,12 +12,23 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * Created by phathuy on 8/28/16.
  */
 var core_1 = require('@angular/core');
-var mock_heroes_1 = require('../data/mock-heroes');
+var http_1 = require('@angular/http');
+require('rxjs/add/operator/toPromise');
+// import {HEROES} from '../data/mock-heroes';
 var HeroService = (function () {
-    function HeroService() {
+    function HeroService(http) {
+        this.http = http;
+        this.heroesUrl = 'app/heroes';
     }
+    HeroService.prototype.handleError = function (error) {
+        console.log(error);
+        return Promise.reject(error.message || error);
+    };
     HeroService.prototype.getHeroes = function () {
-        return Promise.resolve(mock_heroes_1.HEROES);
+        return this.http.get(this.heroesUrl)
+            .toPromise()
+            .then(function (res) { return res.json().data; })
+            .catch(this.handleError);
     };
     HeroService.prototype.getHeroesSlowly = function () {
         var _this = this;
@@ -31,7 +42,7 @@ var HeroService = (function () {
     };
     HeroService = __decorate([
         core_1.Injectable(), 
-        __metadata('design:paramtypes', [])
+        __metadata('design:paramtypes', [http_1.Http])
     ], HeroService);
     return HeroService;
 }());

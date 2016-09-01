@@ -12,14 +12,16 @@ var __metadata = (this && this.__metadata) || function (k, v) {
  * Created by phathuy on 8/21/16.
  */
 var core_1 = require('@angular/core');
+var router_1 = require('@angular/router');
 var ng_semantic_1 = require("ng-semantic");
 // import { ROUTER_DIRECTIVES } from '@angular/router';
 require('jquery');
 require('semantic');
 var hero_service_1 = require('../../services/hero.service');
 var HeroesComponent = (function () {
-    function HeroesComponent(heroService) {
+    function HeroesComponent(heroService, router) {
         this.heroService = heroService;
+        this.router = router;
     }
     HeroesComponent.prototype.getHeroes = function () {
         var _this = this;
@@ -35,6 +37,9 @@ var HeroesComponent = (function () {
     HeroesComponent.prototype.trackByFn = function (index, item) {
         return item.id;
     };
+    HeroesComponent.prototype.gotoDetail = function () {
+        this.router.navigate(['/heroDetail', this.selectedHero.id]);
+    };
     HeroesComponent = __decorate([
         core_1.Component({
             moduleId: module.id,
@@ -43,7 +48,7 @@ var HeroesComponent = (function () {
             selector: 'my-heroes',
             templateUrl: 'heroes.component.html'
         }), 
-        __metadata('design:paramtypes', [hero_service_1.HeroService])
+        __metadata('design:paramtypes', [hero_service_1.HeroService, router_1.Router])
     ], HeroesComponent);
     return HeroesComponent;
 }());

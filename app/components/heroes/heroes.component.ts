@@ -2,6 +2,7 @@
  * Created by phathuy on 8/21/16.
  */
 import {Component,OnInit} from '@angular/core';
+import {Router} from '@angular/router';
 import { SEMANTIC_COMPONENTS } from "ng-semantic";
 // import { ROUTER_DIRECTIVES } from '@angular/router';
 import 'jquery';
@@ -22,7 +23,9 @@ export class HeroesComponent implements OnInit{
     heroes: Hero[];
     selectedHero: Hero;
 
-    constructor(private heroService:HeroService) {
+    constructor(
+        private heroService:HeroService,
+        private router:Router) {
     }
 
     getHeroes():void{
@@ -40,6 +43,10 @@ export class HeroesComponent implements OnInit{
 
     trackByFn(index,item) {
         return item.id
+    }
+
+    gotoDetail():void{
+        this.router.navigate(['/heroDetail',this.selectedHero.id]);
     }
 
 }

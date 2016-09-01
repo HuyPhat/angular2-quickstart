@@ -8,6 +8,10 @@
         <div class="ui horizontal label" [class.green]="hero === selectedHero">{{hero.id}}</div>
         {{hero.name}}
     </div>
+    <div *ngIf="selectedHero">
+        <h2>{{selectedHero.name | uppercase}} is my hero</h2>
+        <button (click)="gotoDetail()" >View Details</button>
+    </div>
 
     <!--<sm-loader [complete]="heroes" class="small text inline loader inverted" text="Heroes..."></sm-loader>-->
     <!--<sm-list>-->
